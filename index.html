@@ -1,11 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A4 Job Tracker</title>
-</head>
-<body>
-    
-</body>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- tailwind and daisyUI cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- custom style for font family -->
+    <style>
+      .geist {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC]">
+    <section class="container mx-auto py-10">
+      <div class="mb-5">
+        <h1 class="text-3xl font-semibold">Job Application Tracker</h1>
+      </div>
+
+      <div class="grid grid-cols-3 items-center gap-3 lg:gap-5 xl:gap-6">
+        <div class="p-4 bg-base-100 rounded-lg border-[#F1F2F4] border">
+          <p class="text-[#323B49] text-sm">Total</p>
+          <h3 class="text-black font-semibold text-2xl">8</h3>
+        </div>
+        <div class="p-4 bg-base-100 rounded-lg border-[#F1F2F4] border">
+          <p class="text-[#323B49] text-sm">Interview</p>
+          <h3 class="text-[#10B981] font-semibold text-2xl">8</h3>
+        </div>
+        <div class="p-4 bg-base-100 rounded-lg border-[#F1F2F4] border">
+          <p class="text-[#323B49] text-sm">Rejected</p>
+          <h3 class="text-[#EF4444] font-semibold text-2xl">8</h3>
+        </div>
+      </div>
+      <div class="divider text-[#E6E7E9]"></div>
+      <div>
+        <div class="flex justify-between items-center mb-5">
+          <h1 class="text-[20px] font-semibold">Available Jobs</h1>
+          <p class="text-[#64748B]">8 jobs</p>
+        </div>
+        <div>
+          <button class="btn btn-primary">All</button>
+          <button class="btn btn-outline">Pending</button>
+          <button class="btn btn-outline">Rejected</button>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
