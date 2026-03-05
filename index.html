@@ -34,7 +34,7 @@
       }
     </style>
   </head>
-  <body class="bg-[#F8FAFC]">
+  <body class="bg-[#F8FAFC] min-h-screen">
     <section class="w-11/12 xl:container mx-auto py-10">
       <div class="mb-5">
         <h1 class="text-3xl font-semibold">Job Application Tracker</h1>
@@ -43,36 +43,36 @@
       <div class="grid grid-cols-3 items-center gap-3 lg:gap-5 xl:gap-6">
         <div class="p-4 bg-base-100 rounded-lg border-[#F1F2F4] border">
           <p class="text-[#323B49] text-sm">Total</p>
-          <h3 class="text-black font-semibold text-2xl">8</h3>
+          <h3 id="totalCount" class="text-black font-semibold text-2xl">8</h3>
         </div>
         <div class="p-4 bg-base-100 rounded-lg border-[#F1F2F4] border">
           <p class="text-[#323B49] text-sm">Interview</p>
-          <h3 class="text-[#10B981] font-semibold text-2xl">8</h3>
+          <h3 id="interviewCount" class="text-[#10B981] font-semibold text-2xl">0</h3>
         </div>
         <div class="p-4 bg-base-100 rounded-lg border-[#F1F2F4] border">
           <p class="text-[#323B49] text-sm">Rejected</p>
-          <h3 class="text-[#EF4444] font-semibold text-2xl">8</h3>
+          <h3 id="rejectedCount" class="text-[#EF4444] font-semibold text-2xl">0</h3>
         </div>
       </div>
       <div class="divider text-[#E6E7E9]"></div>
       <div class="space-y-5">
         <div class="flex justify-between items-center">
           <h1 class="text-[20px] font-semibold">Available Jobs</h1>
-          <p class="text-[#64748B]">8 jobs</p>
+          <p id="jobsCount" class="text-[#64748B]">8 jobs</p>
         </div>
         <div  class="space-x-2">
-          <button class="btn bg-[#3B82F6] text-white px-5">All</button>
-          <button class="btn border border-[#F1F2F4] bg-white text-[#64748B]">
-            Pending
+          <button id="tabAll" class="btn bg-[#3B82F6] border-transparent text-white px-5">All</button>
+          <button id="tabInterview" class="btn border border-[#F1F2F4] bg-white text-[#64748B]">
+            Interview
           </button>
-          <button class="btn border border-[#F1F2F4] bg-white text-[#64748B]">
+          <button id="tabRejected" class="btn border border-[#F1F2F4] bg-white text-[#64748B]">
             Rejected
           </button>
         </div>
 
-        <div class="space-y-3.5">
+        <div id="jobsList" class="space-y-3.5">
           <!-- first card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-1" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="1" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">Mobile First Corp</h1>
@@ -82,6 +82,7 @@
               </div>
               <div>
                 <button
+                  id="delete-1"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -99,7 +100,8 @@
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-1"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -113,20 +115,22 @@
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-1"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-1"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- second card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-2" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="2" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">WebFlow Agency</h1>
@@ -136,6 +140,7 @@
               </div>
               <div>
                 <button
+                  id="delete-2"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -156,7 +161,8 @@ Part-time
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-2"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -169,20 +175,22 @@ Create stunning web experiences for high-profile clients. Must have portfolio an
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-2"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-2"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- third card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-3" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="3" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">DataViz Solutions
@@ -193,6 +201,7 @@ Create stunning web experiences for high-profile clients. Must have portfolio an
               </div>
               <div>
                 <button
+                  id="delete-3"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -213,7 +222,8 @@ Boston, MA
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-3"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -227,20 +237,22 @@ Boston, MA
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-3"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-3"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- fourth card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-4" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="4" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">CloudFirst Inc</h1>
@@ -250,6 +262,7 @@ Boston, MA
               </div>
               <div>
                 <button
+                  id="delete-4"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -270,7 +283,8 @@ Seattle, WA
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-4"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -283,20 +297,22 @@ Seattle, WA
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-4"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-4"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- fifth card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-5" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="5" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">Innovation Labs</h1>
@@ -306,6 +322,7 @@ Seattle, WA
               </div>
               <div>
                 <button
+                  id="delete-5"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -327,7 +344,8 @@ Seattle, WA
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-5"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -340,20 +358,22 @@ Seattle, WA
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-5"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-5"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- sixth card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-6" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="6" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">MegaCorp Solutions</h1>
@@ -363,6 +383,7 @@ Seattle, WA
               </div>
               <div>
                 <button
+                  id="delete-6"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -384,7 +405,8 @@ Full-time
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-6"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -397,20 +419,22 @@ Full-time
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-6"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-6"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- seventh card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-7" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="7" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">StartupXYZ</h1>
@@ -420,6 +444,7 @@ Full-time
               </div>
               <div>
                 <button
+                  id="delete-7"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -440,7 +465,8 @@ Full-time
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-7"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -453,20 +479,22 @@ Full-time
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-7"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-7"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
             </div>
           </div>
           <!-- eighth card -->
-          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+          <div id="card-8" class="p-6 card bg-white border-[#F1F2F4] border space-y-4 job-card" data-id="8" data-status="not-applied">
             <div class="flex justify-between items-center">
               <div>
                 <h1 class="text-lg font-semibold geist">TechCorp Industries</h1>
@@ -476,6 +504,7 @@ Full-time
               </div>
               <div>
                 <button
+                  id="delete-8"
                   class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2"
                 >
                   <i
@@ -497,7 +526,8 @@ Full-time
 
             <div>
               <button
-                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+                id="status-8"
+                class="btn status-btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
               >
                 Not Applied
               </button>
@@ -510,13 +540,15 @@ Full-time
             </div>
             <div class="space-x-3">
               <button
-                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+                id="interview-8"
+                class="btn action-interview bg-transparent uppercase text-[#10B981] border border-[#10B981]"
               >
                 interview
               </button>
 
               <button
-                class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
+                id="reject-8"
+                class="btn action-reject bg-transparent uppercase text-[#EF4444] border border-[#EF4444]"
               >
                 rejected
               </button>
@@ -525,7 +557,7 @@ Full-time
         </div>
 
         <!-- blank page -->
-         <div class="flex items-center justify-center card bg-white border border-[#F1F2F4] py-10">
+         <div id="noJobs" class="flex items-center justify-center card bg-white border border-[#F1F2F4] py-10">
           <div>
             <img src="jobs.png" class="mb-5" alt="no jobs image">
           </div>
