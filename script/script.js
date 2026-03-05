@@ -1,12 +1,12 @@
-var currentTab = 'all';
+let currentTab = 'all';
 
 
 
 function updateCounts() {
-  var interviewCount = 0;
-  var rejectedCount  = 0;
-  // count non-deleted cards and statuses
-  var cards = [
+  let interviewCount = 0;
+  let rejectedCount = 0;
+
+  const cards = [
     document.getElementById('card-1'),
     document.getElementById('card-2'),
     document.getElementById('card-3'),
@@ -17,29 +17,29 @@ function updateCounts() {
     document.getElementById('card-8')
   ];
 
-  var total = 0;
-  for (var i = 0; i < cards.length; i++) {
-    var c = cards[i];
+  let total = 0;
+  for (let i = 0; i < cards.length; i++) {
+    const c = cards[i];
     if (!c) continue;
-    if (c.dataset.deleted === 'true') continue; // deleted
+    if (c.dataset.deleted === 'true') continue;
     total++;
     if (c.dataset.status === 'interview') interviewCount++;
     if (c.dataset.status === 'rejected') rejectedCount++;
   }
 
   // update top stats and jobs count
-  var totalEl = document.getElementById('totalCount');
+  const totalEl = document.getElementById('totalCount');
   if (totalEl) totalEl.textContent = total;
   document.getElementById('interviewCount').textContent = interviewCount;
-  document.getElementById('rejectedCount').textContent  = rejectedCount;
-  var jobsCountEl = document.getElementById('jobsCount');
+  document.getElementById('rejectedCount').textContent = rejectedCount;
+  const jobsCountEl = document.getElementById('jobsCount');
   if (jobsCountEl) jobsCountEl.textContent = total + ' jobs';
 }
 
 
 
 function filterCards() {
-  var allCards = [
+  const allCards = [
     document.getElementById('card-1'),
     document.getElementById('card-2'),
     document.getElementById('card-3'),
@@ -50,12 +50,12 @@ function filterCards() {
     document.getElementById('card-8'),
   ];
 
-  var visibleCount = 0;
-  for (var i = 0; i < allCards.length; i++) {
-    var card   = allCards[i];
+  let visibleCount = 0;
+  for (let i = 0; i < allCards.length; i++) {
+    const card = allCards[i];
     if (!card) continue;
     if (card.dataset.deleted === 'true') { card.style.display = 'none'; continue; }
-    var status = card.dataset.status; 
+    const status = card.dataset.status; 
 
     if (currentTab === 'all') {
       card.style.display = '';           
@@ -68,8 +68,7 @@ function filterCards() {
     if (card.style.display !== 'none') visibleCount++;
   }
 
-  // Show "No jobs available" only when no cards are visible
-  var noJobsEl = document.getElementById('noJobs');
+  const noJobsEl = document.getElementById('noJobs');
   if (noJobsEl) {
     if (visibleCount === 0) noJobsEl.style.display = '';
     else noJobsEl.style.display = 'none';
@@ -79,7 +78,7 @@ function filterCards() {
 
 // staus badge
 function changeStatusBadge(cardNumber, newStatus) {
-  var badge = document.getElementById('status-' + cardNumber); 
+  const badge = document.getElementById('status-' + cardNumber); 
 
   if (newStatus === 'interview') {
     badge.textContent = 'Interview';
@@ -95,10 +94,9 @@ function changeStatusBadge(cardNumber, newStatus) {
 
 // acitve tab logic
 function setActiveTab(clickedTab) {
-  // Explicitly set classes for each tab so active/inactive look is correct.
-  var tabA = document.getElementById('tabAll');
-  var tabI = document.getElementById('tabInterview');
-  var tabR = document.getElementById('tabRejected');
+  const tabA = document.getElementById('tabAll');
+  const tabI = document.getElementById('tabInterview');
+  const tabR = document.getElementById('tabRejected');
 
   if (clickedTab === 'tabAll') {
     tabA.className = 'btn bg-[#3B82F6] border-transparent text-white px-5';
@@ -153,7 +151,7 @@ document.getElementById('reject-1').addEventListener('click', function () {
 
 // delete card1
 document.getElementById('delete-1').addEventListener('click', function () {
-  var c = document.getElementById('card-1');
+  const c = document.getElementById('card-1');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -179,7 +177,7 @@ document.getElementById('reject-2').addEventListener('click', function () {
 
 // delete card2
 document.getElementById('delete-2').addEventListener('click', function () {
-  var c = document.getElementById('card-2');
+  const c = document.getElementById('card-2');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -205,7 +203,7 @@ document.getElementById('reject-3').addEventListener('click', function () {
 
 // delete card3
 document.getElementById('delete-3').addEventListener('click', function () {
-  var c = document.getElementById('card-3');
+  const c = document.getElementById('card-3');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -231,7 +229,7 @@ document.getElementById('reject-4').addEventListener('click', function () {
 
 // delete card4
 document.getElementById('delete-4').addEventListener('click', function () {
-  var c = document.getElementById('card-4');
+  const c = document.getElementById('card-4');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -257,7 +255,7 @@ document.getElementById('reject-5').addEventListener('click', function () {
 
 // delete card5
 document.getElementById('delete-5').addEventListener('click', function () {
-  var c = document.getElementById('card-5');
+  const c = document.getElementById('card-5');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -283,7 +281,7 @@ document.getElementById('reject-6').addEventListener('click', function () {
 
 // delete card6
 document.getElementById('delete-6').addEventListener('click', function () {
-  var c = document.getElementById('card-6');
+  const c = document.getElementById('card-6');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -309,7 +307,7 @@ document.getElementById('reject-7').addEventListener('click', function () {
 
 // delete card7
 document.getElementById('delete-7').addEventListener('click', function () {
-  var c = document.getElementById('card-7');
+  const c = document.getElementById('card-7');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
@@ -335,10 +333,15 @@ document.getElementById('reject-8').addEventListener('click', function () {
 
 // delete card8
 document.getElementById('delete-8').addEventListener('click', function () {
-  var c = document.getElementById('card-8');
+  const c = document.getElementById('card-8');
   if (!c) return;
   c.dataset.deleted = 'true';
   c.style.display = 'none';
   updateCounts();
   filterCards();
 });
+
+
+updateCounts();
+setActiveTab('tabAll');
+filterCards();
