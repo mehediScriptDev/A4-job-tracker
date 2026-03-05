@@ -1,5 +1,3 @@
-
-
 ## Available Jobs Section
 - A title on the left side, jobs count on the right side 
 - 3 different tab  below the section title 

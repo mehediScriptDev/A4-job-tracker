@@ -13,6 +13,9 @@
       rel="stylesheet"
     />
 
+    <!-- font awesome -->
+     <script src="https://kit.fontawesome.com/288dc013f9.js" crossorigin="anonymous"></script>
+
     <!-- tailwind and daisyUI cdn -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -49,15 +52,77 @@
         </div>
       </div>
       <div class="divider text-[#E6E7E9]"></div>
-      <div>
-        <div class="flex justify-between items-center mb-5">
+      <div class="space-y-5">
+        <div class="flex justify-between items-center">
           <h1 class="text-[20px] font-semibold">Available Jobs</h1>
           <p class="text-[#64748B]">8 jobs</p>
         </div>
+        <div class="space-x-2">
+          <button class="btn bg-[#3B82F6] text-white px-5">All</button>
+          <button class="btn border border-[#F1F2F4] bg-white text-[#64748B]">
+            Pending
+          </button>
+          <button class="btn border border-[#F1F2F4] bg-white text-[#64748B]">
+            Rejected
+          </button>
+        </div>
+
         <div>
-          <button class="btn btn-primary">All</button>
-          <button class="btn btn-outline">Pending</button>
-          <button class="btn btn-outline">Rejected</button>
+          <!-- first card -->
+          <div class="p-6 card bg-white border-[#F1F2F4] border space-y-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <h1 class="text-lg font-semibold geist">Mobile First Corp</h1>
+              <p class="text-[#64748B] text-base font-normal">
+                React Native Developer
+              </p>
+              </div>
+              <div>
+                <button class="rounded-full border border-[#F1F2F4] bg-white py-1 px-2">
+                  <i class="fa-regular fa-trash-can text-[#64748B] text-base"></i>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-[#64748B] text-sm font-normal">
+                Remote • Full-time • $130,000 - $175,000
+              </p>
+            </div>
+
+            <div>
+              <button
+                class="btn bg-[#EEF4FF] text-[#002C5C] px-5 uppercase border-none"
+              >
+                Not Applied
+              </button>
+            </div>
+
+            <div>
+              <p class="text-[#323B49] text-sm">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+            </div>
+            <div class="space-x-3">
+              <button
+                class="btn bg-transparent uppercase text-[#10B981] border border-[#10B981]"
+              >
+                interview
+              </button>
+
+              <button class="btn bg-transparent uppercase text-[#EF4444] border border-[#EF4444]">
+                rejected
+              </button>
+            </div>
+          </div>
+          <!-- second card -->
+           <!-- third card -->
+            <!-- fourth card -->
+             <!-- fifth card -->
+              <!-- sixth card -->
+                <!-- seventh card -->
+                  <!-- eighth card -->
         </div>
       </div>
     </section>
